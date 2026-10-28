@@ -27,9 +27,13 @@ Automated job collection from German job platforms (LinkedIn, Indeed, StepStone)
 
 | Platform | Apify Actor | Coverage |
 |----------|------------|---------|
-| LinkedIn Jobs | `apify/linkedin-jobs-scraper` | Global + DE |
-| Indeed | `apify/indeed-scraper` | indeed.de |
+| LinkedIn Jobs | `johnvc/linkedin-jobs-api` | Global + DE |
+| Indeed | `johnvc/indeed-jobs-api` | indeed.de |
 | StepStone | Custom actor or `misceres/stepstone-scraper` | stepstone.de |
+
+Actor input and the fields to map into `ScrapedJob`:
+- LinkedIn: one `keyword` per run, plus `location`, `country: "DE"` and `maxJobs`. Rows carry `jobId`, `title`, `companyName`, `companyUrl`, `location`, `description`, `employmentType` and `jobUrl`.
+- Indeed: `mode: "search"`, `keywords` (list), `location`, `country: "DE"`, `locationRadiusMiles` and `maxResultsPerInput`. Rows carry `jobId`, `jobTitle`, `companyName`, `companyUrl`, `location`, `descriptionMarkdown`, `salaryMin`, `salaryMax`, `isRemote` and `jobUrl`.
 
 ## Scraping Flow
 
