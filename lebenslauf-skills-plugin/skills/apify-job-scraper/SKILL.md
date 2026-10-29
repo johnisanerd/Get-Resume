@@ -32,8 +32,8 @@ Automated job collection from German job platforms (LinkedIn, Indeed, StepStone)
 | StepStone | Custom actor or `misceres/stepstone-scraper` | stepstone.de |
 
 Actor input and the fields to map into `ScrapedJob`:
-- LinkedIn: one `keyword` per run, plus `location`, `country: "DE"` and `maxJobs`. Rows carry `jobId`, `title`, `companyName`, `companyUrl`, `location`, `description`, `employmentType` and `jobUrl`.
-- Indeed: `mode: "search"`, `keywords` (list), `location`, `country: "DE"`, `locationRadiusMiles` and `maxResultsPerInput`. Rows carry `jobId`, `jobTitle`, `companyName`, `companyUrl`, `location`, `descriptionMarkdown`, `salaryMin`, `salaryMax`, `isRemote` and `jobUrl`.
+- LinkedIn: one `keyword` per run, plus `location`, `country: "DE"` and `maxJobs`. It has no radius input, so `location` alone sets the area. Rows carry `jobId`, `title`, `companyName`, `companyUrl`, `location`, `description`, `employmentType` and `jobUrl`.
+- Indeed: `mode: "search"`, `keywords` (list), `location`, `country: "DE"`, `locationRadiusMiles` (convert `radius_km`: miles = km × 0.621, so 50 km is 31) and `maxResultsPerInput`. Rows carry `jobId`, `jobTitle`, `companyName`, `companyUrl`, `location`, `descriptionMarkdown`, `salaryMin`, `salaryMax`, `isRemote` and `jobUrl`.
 
 ## Scraping Flow
 
